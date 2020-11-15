@@ -22,8 +22,8 @@ module task2_top(
 	output [6:0] HEX2;
 	
 	
-	hex_to_7seg		SEG0(HEX0, HEX1, HEX2, SW[9:0]);
-	hex_to_7seg		SEG1(HEX0, HEX1, HEX2, SW[9:0]);
-	hex_to_7seg		SEG2(HEX0, HEX1, HEX2, SW[9:0]);
+	hex_to_7segSW9		SEG0(HEX0, SW[3:0]);
+	hex_to_7segSW9		SEG1(HEX1, SW[7:4]);
+	hex_to_7segSW9		SEG2(HEX2, {2'b00,SW[9:8]});
 	
 endmodule
