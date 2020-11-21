@@ -1,0 +1,64 @@
+|Lab4Task3_top
+KEY[0] => ~NO_FANOUT~
+KEY[1] => clk.IN1
+HEX0[0] << hex_to_7seg:SEG0.port0
+HEX0[1] << hex_to_7seg:SEG0.port0
+HEX0[2] << hex_to_7seg:SEG0.port0
+HEX0[3] << hex_to_7seg:SEG0.port0
+HEX0[4] << hex_to_7seg:SEG0.port0
+HEX0[5] << hex_to_7seg:SEG0.port0
+HEX0[6] << hex_to_7seg:SEG0.port0
+HEX1[0] << hex_to_7seg:SEG1.port0
+HEX1[1] << hex_to_7seg:SEG1.port0
+HEX1[2] << hex_to_7seg:SEG1.port0
+HEX1[3] << hex_to_7seg:SEG1.port0
+HEX1[4] << hex_to_7seg:SEG1.port0
+HEX1[5] << hex_to_7seg:SEG1.port0
+HEX1[6] << hex_to_7seg:SEG1.port0
+
+
+|Lab4Task3_top|lfsr7:PRBS_result
+data_out[1] <= sreg[1].DB_MAX_OUTPUT_PORT_TYPE
+data_out[2] <= sreg[2].DB_MAX_OUTPUT_PORT_TYPE
+data_out[3] <= sreg[3].DB_MAX_OUTPUT_PORT_TYPE
+data_out[4] <= sreg[4].DB_MAX_OUTPUT_PORT_TYPE
+data_out[5] <= sreg[5].DB_MAX_OUTPUT_PORT_TYPE
+data_out[6] <= sreg[6].DB_MAX_OUTPUT_PORT_TYPE
+data_out[7] <= sreg[7].DB_MAX_OUTPUT_PORT_TYPE
+clk => sreg[1].CLK
+clk => sreg[2].CLK
+clk => sreg[3].CLK
+clk => sreg[4].CLK
+clk => sreg[5].CLK
+clk => sreg[6].CLK
+clk => sreg[7].CLK
+
+
+|Lab4Task3_top|hex_to_7seg:SEG0
+out[0] <= WideOr6.DB_MAX_OUTPUT_PORT_TYPE
+out[1] <= WideOr5.DB_MAX_OUTPUT_PORT_TYPE
+out[2] <= WideOr4.DB_MAX_OUTPUT_PORT_TYPE
+out[3] <= WideOr3.DB_MAX_OUTPUT_PORT_TYPE
+out[4] <= WideOr2.DB_MAX_OUTPUT_PORT_TYPE
+out[5] <= WideOr1.DB_MAX_OUTPUT_PORT_TYPE
+out[6] <= WideOr0.DB_MAX_OUTPUT_PORT_TYPE
+in[0] => Decoder0.IN3
+in[1] => Decoder0.IN2
+in[2] => Decoder0.IN1
+in[3] => Decoder0.IN0
+
+
+|Lab4Task3_top|hex_to_7seg:SEG1
+out[0] <= WideOr6.DB_MAX_OUTPUT_PORT_TYPE
+out[1] <= WideOr5.DB_MAX_OUTPUT_PORT_TYPE
+out[2] <= WideOr4.DB_MAX_OUTPUT_PORT_TYPE
+out[3] <= WideOr3.DB_MAX_OUTPUT_PORT_TYPE
+out[4] <= WideOr2.DB_MAX_OUTPUT_PORT_TYPE
+out[5] <= WideOr1.DB_MAX_OUTPUT_PORT_TYPE
+out[6] <= WideOr0.DB_MAX_OUTPUT_PORT_TYPE
+in[0] => Decoder0.IN3
+in[1] => Decoder0.IN2
+in[2] => Decoder0.IN1
+in[3] => Decoder0.IN0
+
+
