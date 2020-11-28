@@ -1,0 +1,18 @@
+Fitter Status : Successful - Thu Nov 26 12:46:51 2020
+Quartus Prime Version : 20.1.0 Build 711 06/05/2020 SJ Lite Edition
+Revision Name : Lab5Task3_top
+Top-level Entity Name : Lab5Task3_top
+Family : MAX 10
+Device : 10M50DAF484C7G
+Timing Models : Final
+Total logic elements : 188 / 49,760 ( < 1 % )
+    Total combinational functions : 185 / 49,760 ( < 1 % )
+    Dedicated logic registers : 75 / 49,760 ( < 1 % )
+Total registers : 75
+Total pins : 50 / 360 ( 14 % )
+Total virtual pins : 0
+Total memory bits : 0 / 1,677,312 ( 0 % )
+Embedded Multiplier 9-bit elements : 0 / 288 ( 0 % )
+Total PLLs : 0 / 4 ( 0 % )
+UFM blocks : 0 / 1 ( 0 % )
+ADC blocks : 0 / 2 ( 0 % )

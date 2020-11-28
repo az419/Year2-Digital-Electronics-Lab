@@ -1,0 +1,77 @@
+------------------------------------------------------------
+Timing Analyzer Summary
+------------------------------------------------------------
+
+Type  : Slow 1200mV 85C Model Setup 'MAX10_CLK1_50'
+Slack : -3.224
+TNS   : -64.969
+
+Type  : Slow 1200mV 85C Model Setup 'spi2dac:DAC_Result|clk_1MHz'
+Slack : -1.839
+TNS   : -29.938
+
+Type  : Slow 1200mV 85C Model Hold 'MAX10_CLK1_50'
+Slack : 0.348
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'spi2dac:DAC_Result|clk_1MHz'
+Slack : 0.349
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'MAX10_CLK1_50'
+Slack : -3.000
+TNS   : -67.538
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'spi2dac:DAC_Result|clk_1MHz'
+Slack : -1.403
+TNS   : -26.657
+
+Type  : Slow 1200mV 0C Model Setup 'MAX10_CLK1_50'
+Slack : -2.926
+TNS   : -55.387
+
+Type  : Slow 1200mV 0C Model Setup 'spi2dac:DAC_Result|clk_1MHz'
+Slack : -1.590
+TNS   : -25.684
+
+Type  : Slow 1200mV 0C Model Hold 'MAX10_CLK1_50'
+Slack : 0.312
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'spi2dac:DAC_Result|clk_1MHz'
+Slack : 0.313
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'MAX10_CLK1_50'
+Slack : -3.000
+TNS   : -67.538
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'spi2dac:DAC_Result|clk_1MHz'
+Slack : -1.403
+TNS   : -26.657
+
+Type  : Fast 1200mV 0C Model Setup 'MAX10_CLK1_50'
+Slack : -0.873
+TNS   : -5.785
+
+Type  : Fast 1200mV 0C Model Setup 'spi2dac:DAC_Result|clk_1MHz'
+Slack : -0.157
+TNS   : -1.545
+
+Type  : Fast 1200mV 0C Model Hold 'MAX10_CLK1_50'
+Slack : 0.152
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'spi2dac:DAC_Result|clk_1MHz'
+Slack : 0.152
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'MAX10_CLK1_50'
+Slack : -3.000
+TNS   : -56.965
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'spi2dac:DAC_Result|clk_1MHz'
+Slack : -1.000
+TNS   : -19.000
+
+------------------------------------------------------------
