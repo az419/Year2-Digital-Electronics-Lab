@@ -1,0 +1,55 @@
+//------------------------------
+// Module name: lab6task1
+// Function: 	Test ADC  MCP3021 by applying a 0 - 3.3V DC
+//						... and display converted 10-bit results on 7-seg display in decimal
+// Creator:  Peter Cheung
+// Version:  1.0
+// Date:     26 Nov 2020
+//------------------------------
+module Lab6Task1_top (
+	MAX10_CLK1_50,		// system clock at 50MHz
+	ADC_CS,		// ADC chip select - low active
+	ADC_CLK,		// Serial symmetical clock at 1MHz 		
+	ADC_DOUT,	// Serial data from ADC
+	HEX0, HEX1, HEX2, HEX3
+);
+
+	input MAX10_CLK1_50;
+	input ADC_DOUT;
+	output ADC_CS, ADC_CLK;
+	output [6:0]   HEX0, HEX1, HEX2; 
+	output [7:0]	HEX3;
+	
+	wire  tick;				// sampling signal, 1 cycle of 20ns per sampling period
+	wire  [9:0] data_in; 		// converted data from ADC
+	wire  data_out;
+	wire	data_valid;			// high when converted data is available
+	wire  [3:0]	bcd0, bcd1, bcd2, bcd3, bcd4;
+	wire  [15:0] voltage;
+	
+ 	
+	// Generate sampling tick once every 20us (50kHz sampling rate)
+	clktick  GEN_10K (MAX10_CLK1_50, 1'b1, tick);
+	
+	spi2adc SPI_ADC_INTERFACE (	
+			.sysclk (MAX10_CLK1_50),
+			.start (tick),
+			.data_from_adc (data_in),
+			.data_valid (data_valid),
+			.adc_cs (ADC_CS),
+			.adc_sck (ADC_CLK),
+			.sdata_from_adc (ADC_DOUT));
+			
+	assign voltage = data_in * 6'd33 / 6'd10;
+	
+	bin2bcd_16 		BCD_CONVERTER (voltage, bcd0, bcd1, bcd2, bcd3, bcd4);
+
+	hex_to_7seg 	DISP0 	(HEX0, bcd0);
+	hex_to_7seg 	DISP1 	(HEX1, bcd1);
+	hex_to_7seg 	DISP2 	(HEX2, bcd2);
+	hex_to_7seg 	DISP3 	(HEX3[6:0], bcd3);
+	hex_to_7seg_DP decimal 	(HEX3[7]);
+	
+endmodule
+
+

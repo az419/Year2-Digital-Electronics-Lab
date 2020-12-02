@@ -1,0 +1,18 @@
+module FSM(
+	input		clk,
+	input		full,
+	output	fifo_state
+	
+);
+
+	reg	fifo_state;
+
+	always @(posedge clk)
+		if(full)
+			fifo_state <= 1;
+		else
+			fifo_state <= 0;
+			
+		end
+
+endmodule

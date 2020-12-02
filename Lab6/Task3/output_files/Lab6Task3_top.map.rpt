@@ -1,0 +1,528 @@
+Analysis & Synthesis report for Lab6Task3_top
+Tue Dec 01 23:39:14 2020
+Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. State Machine - |Lab6Task3_top|processor:TIMES2|pulse_gen:PULSE|state
+  9. State Machine - |Lab6Task3_top|spi2adc:SPI_ADC_INTERFACE|sr_state
+ 10. State Machine - |Lab6Task3_top|spi2dac:SPI_DAC_INTERFACE|sr_state
+ 11. Registers Removed During Synthesis
+ 12. Removed Registers Triggering Further Register Optimizations
+ 13. General Register Statistics
+ 14. Inverted Register Statistics
+ 15. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 16. Parameter Settings for User Entity Instance: clktick:GEN_10K
+ 17. Parameter Settings for User Entity Instance: spi2dac:SPI_DAC_INTERFACE
+ 18. Parameter Settings for User Entity Instance: spi2adc:SPI_ADC_INTERFACE
+ 19. Parameter Settings for User Entity Instance: processor:TIMES2
+ 20. Parameter Settings for User Entity Instance: processor:TIMES2|pulse_gen:PULSE
+ 21. Port Connectivity Checks: "clktick:GEN_10K"
+ 22. Post-Synthesis Netlist Statistics for Top Partition
+ 23. Elapsed Time Per Partition
+ 24. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2020  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details, at
+https://fpgasoftware.intel.com/eula.
+
+
+
++----------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                     ;
++------------------------------------+---------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Tue Dec 01 23:39:14 2020       ;
+; Quartus Prime Version              ; 20.1.0 Build 711 06/05/2020 SJ Lite Edition ;
+; Revision Name                      ; Lab6Task3_top                               ;
+; Top-level Entity Name              ; Lab6Task3_top                               ;
+; Family                             ; MAX 10                                      ;
+; Total logic elements               ; 125                                         ;
+;     Total combinational functions  ; 97                                          ;
+;     Dedicated logic registers      ; 89                                          ;
+; Total registers                    ; 89                                          ;
+; Total pins                         ; 36                                          ;
+; Total virtual pins                 ; 0                                           ;
+; Total memory bits                  ; 0                                           ;
+; Embedded Multiplier 9-bit elements ; 0                                           ;
+; Total PLLs                         ; 0                                           ;
+; UFM blocks                         ; 0                                           ;
+; ADC blocks                         ; 0                                           ;
++------------------------------------+---------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                              ;
++------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                           ; Setting            ; Default Value      ;
++------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                           ; 10M50DAF484C7G     ;                    ;
+; Top-level entity name                                            ; Lab6Task3_top      ; Lab6Task3_top      ;
+; Family name                                                      ; MAX 10             ; Cyclone V          ;
+; Use smart compilation                                            ; Off                ; Off                ;
+; Enable parallel Assembler and Timing Analyzer during compilation ; On                 ; On                 ;
+; Enable compact report table                                      ; Off                ; Off                ;
+; Restructure Multiplexers                                         ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                              ; Off                ; Off                ;
+; Preserve fewer node names                                        ; On                 ; On                 ;
+; Intel FPGA IP Evaluation Mode                                    ; Enable             ; Enable             ;
+; Verilog Version                                                  ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                     ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                         ; Auto               ; Auto               ;
+; Safe State Machine                                               ; Off                ; Off                ;
+; Extract Verilog State Machines                                   ; On                 ; On                 ;
+; Extract VHDL State Machines                                      ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                       ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                   ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                          ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                        ; On                 ; On                 ;
+; Parallel Synthesis                                               ; On                 ; On                 ;
+; DSP Block Balancing                                              ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                               ; On                 ; On                 ;
+; Power-Up Don't Care                                              ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                     ; Off                ; Off                ;
+; Remove Duplicate Registers                                       ; On                 ; On                 ;
+; Ignore CARRY Buffers                                             ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                           ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                            ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                        ; Off                ; Off                ;
+; Ignore LCELL Buffers                                             ; Off                ; Off                ;
+; Ignore SOFT Buffers                                              ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                   ; Off                ; Off                ;
+; Optimization Technique                                           ; Balanced           ; Balanced           ;
+; Carry Chain Length                                               ; 70                 ; 70                 ;
+; Auto Carry Chains                                                ; On                 ; On                 ;
+; Auto Open-Drain Pins                                             ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                            ; Off                ; Off                ;
+; Auto ROM Replacement                                             ; On                 ; On                 ;
+; Auto RAM Replacement                                             ; On                 ; On                 ;
+; Auto DSP Block Replacement                                       ; On                 ; On                 ;
+; Auto Shift Register Replacement                                  ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                  ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                    ; On                 ; On                 ;
+; Strict RAM Replacement                                           ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                           ; Off                ; Off                ;
+; Auto RAM Block Balancing                                         ; On                 ; On                 ;
+; Auto RAM to Logic Cell Conversion                                ; Off                ; Off                ;
+; Auto Resource Sharing                                            ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                               ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                               ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                    ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing              ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                ; Off                ; Off                ;
+; Timing-Driven Synthesis                                          ; On                 ; On                 ;
+; Report Parameter Settings                                        ; On                 ; On                 ;
+; Report Source Assignments                                        ; On                 ; On                 ;
+; Report Connectivity Checks                                       ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                               ; Off                ; Off                ;
+; Synchronization Register Chain Length                            ; 2                  ; 2                  ;
+; Power Optimization During Synthesis                              ; Normal compilation ; Normal compilation ;
+; HDL message level                                                ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                  ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report         ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report               ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report        ; 100                ; 100                ;
+; Clock MUX Protection                                             ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                      ; Off                ; Off                ;
+; Block Design Naming                                              ; Auto               ; Auto               ;
+; SDC constraint protection                                        ; Off                ; Off                ;
+; Synthesis Effort                                                 ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal     ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                             ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                               ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                      ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                           ; On                 ; On                 ;
++------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 8           ;
+; Maximum allowed            ; 4           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 4           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processors 2-4         ;   0.0%      ;
++----------------------------+-------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                       ;
++----------------------------------+-----------------+------------------------+--------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type              ; File Name with Absolute Path         ; Library ;
++----------------------------------+-----------------+------------------------+--------------------------------------+---------+
+; spi2dac.v                        ; yes             ; User Verilog HDL File  ; C:/E2_CAS/Lab6/Task3/spi2dac.v       ;         ;
+; spi2adc.v                        ; yes             ; User Verilog HDL File  ; C:/E2_CAS/Lab6/Task3/spi2adc.v       ;         ;
+; pulse_gen.v                      ; yes             ; User Verilog HDL File  ; C:/E2_CAS/Lab6/Task3/pulse_gen.v     ;         ;
+; Lab6Task3_top.v                  ; yes             ; User Verilog HDL File  ; C:/E2_CAS/Lab6/Task3/Lab6Task3_top.v ;         ;
+; clktick.v                        ; yes             ; User Verilog HDL File  ; C:/E2_CAS/Lab6/Task3/clktick.v       ;         ;
+; times2.v                         ; yes             ; User Verilog HDL File  ; C:/E2_CAS/Lab6/Task3/times2.v        ;         ;
++----------------------------------+-----------------+------------------------+--------------------------------------+---------+
+
+
++-------------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                       ;
++---------------------------------------------+---------------------+
+; Resource                                    ; Usage               ;
++---------------------------------------------+---------------------+
+; Estimated Total logic elements              ; 125                 ;
+;                                             ;                     ;
+; Total combinational functions               ; 97                  ;
+; Logic element usage by number of LUT inputs ;                     ;
+;     -- 4 input functions                    ; 34                  ;
+;     -- 3 input functions                    ; 16                  ;
+;     -- <=2 input functions                  ; 47                  ;
+;                                             ;                     ;
+; Logic elements by mode                      ;                     ;
+;     -- normal mode                          ; 71                  ;
+;     -- arithmetic mode                      ; 26                  ;
+;                                             ;                     ;
+; Total registers                             ; 89                  ;
+;     -- Dedicated logic registers            ; 89                  ;
+;     -- I/O registers                        ; 0                   ;
+;                                             ;                     ;
+; I/O pins                                    ; 36                  ;
+;                                             ;                     ;
+; Embedded Multiplier 9-bit elements          ; 0                   ;
+;                                             ;                     ;
+; Maximum fan-out node                        ; MAX10_CLK1_50~input ;
+; Maximum fan-out                             ; 71                  ;
+; Total fan-out                               ; 528                 ;
+; Average fan-out                             ; 2.05                ;
++---------------------------------------------+---------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                  ;
++--------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+-------------------------------------------------+---------------+--------------+
+; Compilation Hierarchy Node     ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; ADC blocks ; Full Hierarchy Name                             ; Entity Name   ; Library Name ;
++--------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+-------------------------------------------------+---------------+--------------+
+; |Lab6Task3_top                 ; 97 (0)              ; 89 (0)                    ; 0           ; 0          ; 0            ; 0       ; 0         ; 36   ; 0            ; 0          ; |Lab6Task3_top                                  ; Lab6Task3_top ; work         ;
+;    |clktick:GEN_10K|           ; 29 (29)             ; 17 (17)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Lab6Task3_top|clktick:GEN_10K                  ; clktick       ; work         ;
+;    |processor:TIMES2|          ; 3 (1)               ; 11 (9)                    ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Lab6Task3_top|processor:TIMES2                 ; processor     ; work         ;
+;       |pulse_gen:PULSE|        ; 2 (2)               ; 2 (2)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Lab6Task3_top|processor:TIMES2|pulse_gen:PULSE ; pulse_gen     ; work         ;
+;    |spi2adc:SPI_ADC_INTERFACE| ; 31 (31)             ; 39 (39)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Lab6Task3_top|spi2adc:SPI_ADC_INTERFACE        ; spi2adc       ; work         ;
+;    |spi2dac:SPI_DAC_INTERFACE| ; 34 (34)             ; 22 (22)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Lab6Task3_top|spi2dac:SPI_DAC_INTERFACE        ; spi2dac       ; work         ;
++--------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+-------------------------------------------------+---------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
+Encoding Type:  One-Hot
++-----------------------------------------------------------------------+
+; State Machine - |Lab6Task3_top|processor:TIMES2|pulse_gen:PULSE|state ;
++----------------+------------+----------------+------------------------+
+; Name           ; state.IDLE ; state.WAIT_LOW ; state.IN_HIGH          ;
++----------------+------------+----------------+------------------------+
+; state.IDLE     ; 0          ; 0              ; 0                      ;
+; state.IN_HIGH  ; 1          ; 0              ; 1                      ;
+; state.WAIT_LOW ; 1          ; 1              ; 0                      ;
++----------------+------------+----------------+------------------------+
+
+
+Encoding Type:  One-Hot
++------------------------------------------------------------------------------------------+
+; State Machine - |Lab6Task3_top|spi2adc:SPI_ADC_INTERFACE|sr_state                        ;
++------------------------+---------------+------------------------+------------------------+
+; Name                   ; sr_state.IDLE ; sr_state.WAIT_CSB_HIGH ; sr_state.WAIT_CSB_FALL ;
++------------------------+---------------+------------------------+------------------------+
+; sr_state.IDLE          ; 0             ; 0                      ; 0                      ;
+; sr_state.WAIT_CSB_FALL ; 1             ; 0                      ; 1                      ;
+; sr_state.WAIT_CSB_HIGH ; 1             ; 1                      ; 0                      ;
++------------------------+---------------+------------------------+------------------------+
+
+
+Encoding Type:  One-Hot
++------------------------------------------------------------------------------------------+
+; State Machine - |Lab6Task3_top|spi2dac:SPI_DAC_INTERFACE|sr_state                        ;
++------------------------+---------------+------------------------+------------------------+
+; Name                   ; sr_state.IDLE ; sr_state.WAIT_CSB_HIGH ; sr_state.WAIT_CSB_FALL ;
++------------------------+---------------+------------------------+------------------------+
+; sr_state.IDLE          ; 0             ; 0                      ; 0                      ;
+; sr_state.WAIT_CSB_FALL ; 1             ; 0                      ; 1                      ;
+; sr_state.WAIT_CSB_HIGH ; 1             ; 1                      ; 0                      ;
++------------------------+---------------+------------------------+------------------------+
+
+
++------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                             ;
++-------------------------------------------------+----------------------------------------------+
+; Register name                                   ; Reason for Removal                           ;
++-------------------------------------------------+----------------------------------------------+
+; processor:TIMES2|data_out[0]                    ; Stuck at GND due to stuck port data_in       ;
+; spi2dac:SPI_DAC_INTERFACE|shift_reg[0..2]       ; Stuck at GND due to stuck port data_in       ;
+; spi2dac:SPI_DAC_INTERFACE|ctr[4]                ; Merged with spi2adc:SPI_ADC_INTERFACE|ctr[4] ;
+; spi2dac:SPI_DAC_INTERFACE|ctr[3]                ; Merged with spi2adc:SPI_ADC_INTERFACE|ctr[3] ;
+; spi2dac:SPI_DAC_INTERFACE|ctr[2]                ; Merged with spi2adc:SPI_ADC_INTERFACE|ctr[2] ;
+; spi2dac:SPI_DAC_INTERFACE|ctr[1]                ; Merged with spi2adc:SPI_ADC_INTERFACE|ctr[1] ;
+; spi2dac:SPI_DAC_INTERFACE|ctr[0]                ; Merged with spi2adc:SPI_ADC_INTERFACE|ctr[0] ;
+; processor:TIMES2|pulse_gen:PULSE|state.IN_HIGH  ; Lost fanout                                  ;
+; processor:TIMES2|pulse_gen:PULSE|state.WAIT_LOW ; Lost fanout                                  ;
+; Total Number of Removed Registers = 11          ;                                              ;
++-------------------------------------------------+----------------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                 ;
++----------------------------------------+---------------------------+----------------------------------------+
+; Register name                          ; Reason for Removal        ; Registers Removed due to This Register ;
++----------------------------------------+---------------------------+----------------------------------------+
+; processor:TIMES2|data_out[0]           ; Stuck at GND              ; spi2dac:SPI_DAC_INTERFACE|shift_reg[2] ;
+;                                        ; due to stuck port data_in ;                                        ;
+; spi2dac:SPI_DAC_INTERFACE|shift_reg[0] ; Stuck at GND              ; spi2dac:SPI_DAC_INTERFACE|shift_reg[1] ;
+;                                        ; due to stuck port data_in ;                                        ;
++----------------------------------------+---------------------------+----------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 89    ;
+; Number of registers using Synchronous Clear  ; 0     ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 0     ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 39    ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++--------------------------------------------------+
+; Inverted Register Statistics                     ;
++----------------------------------------+---------+
+; Inverted Register                      ; Fan out ;
++----------------------------------------+---------+
+; spi2adc:SPI_ADC_INTERFACE|adc_cs       ; 9       ;
+; Total number of inverted registers = 1 ;         ;
++----------------------------------------+---------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                   ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                         ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------+
+; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; No         ; |Lab6Task3_top|spi2dac:SPI_DAC_INTERFACE|Selector2 ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------+
+
+
++--------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: clktick:GEN_10K ;
++----------------+-------+-------------------------------------+
+; Parameter Name ; Value ; Type                                ;
++----------------+-------+-------------------------------------+
+; N_BIT          ; 16    ; Signed Integer                      ;
+; N              ; 999   ; Signed Integer                      ;
++----------------+-------+-------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: spi2dac:SPI_DAC_INTERFACE ;
++----------------+-------+-----------------------------------------------+
+; Parameter Name ; Value ; Type                                          ;
++----------------+-------+-----------------------------------------------+
+; BUF            ; 1     ; Unsigned Binary                               ;
+; GA_N           ; 1     ; Unsigned Binary                               ;
+; SHDN_N         ; 1     ; Unsigned Binary                               ;
+; TC             ; 11000 ; Unsigned Binary                               ;
+; IDLE           ; 00    ; Unsigned Binary                               ;
+; WAIT_CSB_FALL  ; 01    ; Unsigned Binary                               ;
+; WAIT_CSB_HIGH  ; 10    ; Unsigned Binary                               ;
++----------------+-------+-----------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: spi2adc:SPI_ADC_INTERFACE ;
++----------------+-------+-----------------------------------------------+
+; Parameter Name ; Value ; Type                                          ;
++----------------+-------+-----------------------------------------------+
+; TERMINAL_CNT   ; 11000 ; Unsigned Binary                               ;
+; IDLE           ; 00    ; Unsigned Binary                               ;
+; WAIT_CSB_FALL  ; 01    ; Unsigned Binary                               ;
+; WAIT_CSB_HIGH  ; 10    ; Unsigned Binary                               ;
++----------------+-------+-----------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: processor:TIMES2 ;
++----------------+------------+---------------------------------+
+; Parameter Name ; Value      ; Type                            ;
++----------------+------------+---------------------------------+
+; ADC_OFFSET     ; 1000000000 ; Unsigned Binary                 ;
+; DAC_OFFSET     ; 1000000000 ; Unsigned Binary                 ;
++----------------+------------+---------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: processor:TIMES2|pulse_gen:PULSE ;
++----------------+-------+------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                 ;
++----------------+-------+------------------------------------------------------+
+; IDLE           ; 00    ; Unsigned Binary                                      ;
+; IN_HIGH        ; 01    ; Unsigned Binary                                      ;
+; WAIT_LOW       ; 10    ; Unsigned Binary                                      ;
++----------------+-------+------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------+
+; Port Connectivity Checks: "clktick:GEN_10K" ;
++--------+-------+----------+-----------------+
+; Port   ; Type  ; Severity ; Details         ;
++--------+-------+----------+-----------------+
+; enable ; Input ; Info     ; Stuck at VCC    ;
++--------+-------+----------+-----------------+
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; boundary_port         ; 36                          ;
+; cycloneiii_ff         ; 89                          ;
+;     ENA               ; 39                          ;
+;     plain             ; 50                          ;
+; cycloneiii_lcell_comb ; 102                         ;
+;     arith             ; 26                          ;
+;         2 data inputs ; 25                          ;
+;         3 data inputs ; 1                           ;
+;     normal            ; 76                          ;
+;         0 data inputs ; 1                           ;
+;         1 data inputs ; 12                          ;
+;         2 data inputs ; 14                          ;
+;         3 data inputs ; 15                          ;
+;         4 data inputs ; 34                          ;
+;                       ;                             ;
+; Max LUT depth         ; 3.50                        ;
+; Average LUT depth     ; 2.01                        ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:00     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
+    Info: Processing started: Tue Dec 01 23:39:08 2020
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off Lab6Task3 -c Lab6Task3_top
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
+Info (12021): Found 1 design units, including 1 entities, in source file spi2dac.v
+    Info (12023): Found entity 1: spi2dac File: C:/E2_CAS/Lab6/Task3/spi2dac.v Line: 9
+Info (12021): Found 1 design units, including 1 entities, in source file spi2adc.v
+    Info (12023): Found entity 1: spi2adc File: C:/E2_CAS/Lab6/Task3/spi2adc.v Line: 9
+Info (12021): Found 1 design units, including 1 entities, in source file pulse_gen.v
+    Info (12023): Found entity 1: pulse_gen File: C:/E2_CAS/Lab6/Task3/pulse_gen.v Line: 9
+Info (12021): Found 1 design units, including 1 entities, in source file lab6task3_top.v
+    Info (12023): Found entity 1: Lab6Task3_top File: C:/E2_CAS/Lab6/Task3/Lab6Task3_top.v Line: 8
+Info (12021): Found 1 design units, including 1 entities, in source file clktick.v
+    Info (12023): Found entity 1: clktick File: C:/E2_CAS/Lab6/Task3/clktick.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file times2.v
+    Info (12023): Found entity 1: processor File: C:/E2_CAS/Lab6/Task3/times2.v Line: 9
+Warning (10236): Verilog HDL Implicit Net warning at times2.v(31): created implicit net for "enable" File: C:/E2_CAS/Lab6/Task3/times2.v Line: 31
+Info (12127): Elaborating entity "Lab6Task3_top" for the top level hierarchy
+Warning (10034): Output port "HEX0" at Lab6Task3_top.v(23) has no driver File: C:/E2_CAS/Lab6/Task3/Lab6Task3_top.v Line: 23
+Warning (10034): Output port "HEX1" at Lab6Task3_top.v(23) has no driver File: C:/E2_CAS/Lab6/Task3/Lab6Task3_top.v Line: 23
+Warning (10034): Output port "HEX2" at Lab6Task3_top.v(23) has no driver File: C:/E2_CAS/Lab6/Task3/Lab6Task3_top.v Line: 23
+Warning (10034): Output port "HEX3" at Lab6Task3_top.v(24) has no driver File: C:/E2_CAS/Lab6/Task3/Lab6Task3_top.v Line: 24
+Info (12128): Elaborating entity "clktick" for hierarchy "clktick:GEN_10K" File: C:/E2_CAS/Lab6/Task3/Lab6Task3_top.v Line: 32
+Warning (10230): Verilog HDL assignment warning at clktick.v(35): truncated value with size 32 to match size of target (16) File: C:/E2_CAS/Lab6/Task3/clktick.v Line: 35
+Info (12128): Elaborating entity "spi2dac" for hierarchy "spi2dac:SPI_DAC_INTERFACE" File: C:/E2_CAS/Lab6/Task3/Lab6Task3_top.v Line: 35
+Info (12128): Elaborating entity "spi2adc" for hierarchy "spi2adc:SPI_ADC_INTERFACE" File: C:/E2_CAS/Lab6/Task3/Lab6Task3_top.v Line: 43
+Warning (10230): Verilog HDL assignment warning at spi2adc.v(131): truncated value with size 12 to match size of target (10) File: C:/E2_CAS/Lab6/Task3/spi2adc.v Line: 131
+Info (12128): Elaborating entity "processor" for hierarchy "processor:TIMES2" File: C:/E2_CAS/Lab6/Task3/Lab6Task3_top.v Line: 46
+Warning (10230): Verilog HDL assignment warning at times2.v(29): truncated value with size 32 to match size of target (10) File: C:/E2_CAS/Lab6/Task3/times2.v Line: 29
+Info (12128): Elaborating entity "pulse_gen" for hierarchy "processor:TIMES2|pulse_gen:PULSE" File: C:/E2_CAS/Lab6/Task3/times2.v Line: 31
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "HEX0[0]" is stuck at GND File: C:/E2_CAS/Lab6/Task3/Lab6Task3_top.v Line: 23
+    Warning (13410): Pin "HEX0[1]" is stuck at GND File: C:/E2_CAS/Lab6/Task3/Lab6Task3_top.v Line: 23
+    Warning (13410): Pin "HEX0[2]" is stuck at GND File: C:/E2_CAS/Lab6/Task3/Lab6Task3_top.v Line: 23
+    Warning (13410): Pin "HEX0[3]" is stuck at GND File: C:/E2_CAS/Lab6/Task3/Lab6Task3_top.v Line: 23
+    Warning (13410): Pin "HEX0[4]" is stuck at GND File: C:/E2_CAS/Lab6/Task3/Lab6Task3_top.v Line: 23
+    Warning (13410): Pin "HEX0[5]" is stuck at GND File: C:/E2_CAS/Lab6/Task3/Lab6Task3_top.v Line: 23
+    Warning (13410): Pin "HEX0[6]" is stuck at GND File: C:/E2_CAS/Lab6/Task3/Lab6Task3_top.v Line: 23
+    Warning (13410): Pin "HEX1[0]" is stuck at GND File: C:/E2_CAS/Lab6/Task3/Lab6Task3_top.v Line: 23
+    Warning (13410): Pin "HEX1[1]" is stuck at GND File: C:/E2_CAS/Lab6/Task3/Lab6Task3_top.v Line: 23
+    Warning (13410): Pin "HEX1[2]" is stuck at GND File: C:/E2_CAS/Lab6/Task3/Lab6Task3_top.v Line: 23
+    Warning (13410): Pin "HEX1[3]" is stuck at GND File: C:/E2_CAS/Lab6/Task3/Lab6Task3_top.v Line: 23
+    Warning (13410): Pin "HEX1[4]" is stuck at GND File: C:/E2_CAS/Lab6/Task3/Lab6Task3_top.v Line: 23
+    Warning (13410): Pin "HEX1[5]" is stuck at GND File: C:/E2_CAS/Lab6/Task3/Lab6Task3_top.v Line: 23
+    Warning (13410): Pin "HEX1[6]" is stuck at GND File: C:/E2_CAS/Lab6/Task3/Lab6Task3_top.v Line: 23
+    Warning (13410): Pin "HEX2[0]" is stuck at GND File: C:/E2_CAS/Lab6/Task3/Lab6Task3_top.v Line: 23
+    Warning (13410): Pin "HEX2[1]" is stuck at GND File: C:/E2_CAS/Lab6/Task3/Lab6Task3_top.v Line: 23
+    Warning (13410): Pin "HEX2[2]" is stuck at GND File: C:/E2_CAS/Lab6/Task3/Lab6Task3_top.v Line: 23
+    Warning (13410): Pin "HEX2[3]" is stuck at GND File: C:/E2_CAS/Lab6/Task3/Lab6Task3_top.v Line: 23
+    Warning (13410): Pin "HEX2[4]" is stuck at GND File: C:/E2_CAS/Lab6/Task3/Lab6Task3_top.v Line: 23
+    Warning (13410): Pin "HEX2[5]" is stuck at GND File: C:/E2_CAS/Lab6/Task3/Lab6Task3_top.v Line: 23
+    Warning (13410): Pin "HEX2[6]" is stuck at GND File: C:/E2_CAS/Lab6/Task3/Lab6Task3_top.v Line: 23
+    Warning (13410): Pin "HEX3[0]" is stuck at GND File: C:/E2_CAS/Lab6/Task3/Lab6Task3_top.v Line: 24
+    Warning (13410): Pin "HEX3[1]" is stuck at GND File: C:/E2_CAS/Lab6/Task3/Lab6Task3_top.v Line: 24
+    Warning (13410): Pin "HEX3[2]" is stuck at GND File: C:/E2_CAS/Lab6/Task3/Lab6Task3_top.v Line: 24
+    Warning (13410): Pin "HEX3[3]" is stuck at GND File: C:/E2_CAS/Lab6/Task3/Lab6Task3_top.v Line: 24
+    Warning (13410): Pin "HEX3[4]" is stuck at GND File: C:/E2_CAS/Lab6/Task3/Lab6Task3_top.v Line: 24
+    Warning (13410): Pin "HEX3[5]" is stuck at GND File: C:/E2_CAS/Lab6/Task3/Lab6Task3_top.v Line: 24
+    Warning (13410): Pin "HEX3[6]" is stuck at GND File: C:/E2_CAS/Lab6/Task3/Lab6Task3_top.v Line: 24
+    Warning (13410): Pin "HEX3[7]" is stuck at GND File: C:/E2_CAS/Lab6/Task3/Lab6Task3_top.v Line: 24
+Info (286030): Timing-Driven Synthesis is running
+Info (17049): 2 registers lost all their fanouts during netlist optimizations.
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Info (21057): Implemented 162 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 2 input pins
+    Info (21059): Implemented 34 output pins
+    Info (21061): Implemented 126 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 39 warnings
+    Info: Peak virtual memory: 4760 megabytes
+    Info: Processing ended: Tue Dec 01 23:39:14 2020
+    Info: Elapsed time: 00:00:06
+    Info: Total CPU time (on all processors): 00:00:13
+
+

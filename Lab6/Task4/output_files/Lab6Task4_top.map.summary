@@ -1,0 +1,16 @@
+Analysis & Synthesis Status : Successful - Wed Dec 02 12:24:55 2020
+Quartus Prime Version : 20.1.0 Build 711 06/05/2020 SJ Lite Edition
+Revision Name : Lab6Task4_top
+Top-level Entity Name : Lab6Task4_top
+Family : MAX 10
+Total logic elements : 177
+    Total combinational functions : 155
+    Dedicated logic registers : 134
+Total registers : 134
+Total pins : 7
+Total virtual pins : 0
+Total memory bits : 73,728
+Embedded Multiplier 9-bit elements : 0
+Total PLLs : 0
+UFM blocks : 0
+ADC blocks : 0
