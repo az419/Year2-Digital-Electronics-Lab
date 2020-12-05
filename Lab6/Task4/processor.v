@@ -36,7 +36,7 @@ module processor(sysclk, data_in, data_out, data_valid);
 	assign wrreq = wren;
 	
 	FSM			FSM_OUT(sysclk,full,fifo_state);
-	fifo			FIFO_OUT(sysclk,x,fifo_state&wren,wrreq,full,q);	//simple echo
+	fifo2			FIFO_OUT(sysclk,x,fifo_state&wren,wrreq,full,q);	//simple echo
 	
 	assign y = x + {q[9], q[9:1]};	//simple echo
 	

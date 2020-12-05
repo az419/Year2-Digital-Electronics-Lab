@@ -4,8 +4,14 @@ module FSM(
 	input		full,
 	output 	reg FSM_enable
 );
+	
+	// Define the state using one-hoting coding
+	parameter	stateA = 1'b00;
+	parameter	stateB = 1'b10;
+	
+	parameter	NSTATE = 2;
 
-	reg		state;
+	reg	[NSATE-1:0]state;
 	
 	initial	state = 0;
 	
@@ -13,10 +19,11 @@ module FSM(
 	always @(posedge clk)
 		begin
 			case(state)
-				1'b0: if(full==1'b1)
+				stateA: if(full==1'b1)
 							state <= 1'b1;
 							
-				1'b1:	; //state <= 1'b0;
+				stateB: ;//state <= 1'b0;
+				default: ;
 				endcase
 			
 		end
@@ -24,8 +31,8 @@ module FSM(
 	always @(*)
 		begin
 			case(state)
-				1'b0:	FSM_enable <= 0;
-				1'b1: FSM_enable <= 1;
+				stateA:	FSM_enable = 0;
+				stateB: FSM_enable = 1;
 			endcase
 		
 		end
