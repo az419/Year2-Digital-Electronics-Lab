@@ -1,0 +1,24 @@
+module Lab7Challenge_top(
+	MAX10_CLK1_50,
+	SW,
+	HEX0,
+	HEX1,
+	HEX2,
+	HEX3,
+	HEX4,
+);
+
+	input		[9:0]	SW;
+	input				MAX10_CLK1_50;
+	output	[6:0] HEX0,HEX1,HEX2,HEX3,HEX4;
+	
+	wire	[3:0] BCD0, BCD1, BCD2, BCD3, BCD4;
+	wire	[9:0]	D;
+	
+	ROM				ROM_out(SW,MAX10_CLK1_50,D);
+	bin2bcd_16		Converter({6'b000000, D}, BCD0, BCD1, BCD2, BCD3, BCD4);
+	hex_to_7seg		SEG0(HEX0, BCD0);
+	hex_to_7seg		SEG0(HEX1, BCD1);
+	hex_to_7seg		SEG0(HEX2, BCD2);
+	hex_to_7seg		SEG0(HEX3, BCD3);
+	hex_to_7seg		SEG0(HEX4, BCD4);	
