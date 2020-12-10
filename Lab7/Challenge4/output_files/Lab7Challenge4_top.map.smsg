@@ -1,0 +1,2 @@
+Warning (10268): Verilog HDL information at FSM.v(51): always construct contains both blocking and non-blocking assignments File: C:/E2_CAS/Lab7/Challenge4/FSM.v Line: 51
+Info (10281): Verilog HDL Declaration information at Lab7Challenge4_top.v(10): object "DELAY" differs only in case from object "Delay" in the same scope File: C:/E2_CAS/Lab7/Challenge4/Lab7Challenge4_top.v Line: 10

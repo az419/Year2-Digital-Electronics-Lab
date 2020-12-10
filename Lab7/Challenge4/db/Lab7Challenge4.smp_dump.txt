@@ -1,0 +1,16 @@
+
+State Machine - |Lab7Challenge4_top|FSM:fsm|state
+Name state.SHUT state.HOLD state.LED0 state.LED1 state.LED2 state.LED3 state.LED4 state.LED5 state.LED6 state.LED7 state.LED8 state.LED9 state.IDLE 
+state.IDLE 0 0 0 0 0 0 0 0 0 0 0 0 0 
+state.LED9 0 0 0 0 0 0 0 0 0 0 0 1 1 
+state.LED8 0 0 0 0 0 0 0 0 0 0 1 0 1 
+state.LED7 0 0 0 0 0 0 0 0 0 1 0 0 1 
+state.LED6 0 0 0 0 0 0 0 0 1 0 0 0 1 
+state.LED5 0 0 0 0 0 0 0 1 0 0 0 0 1 
+state.LED4 0 0 0 0 0 0 1 0 0 0 0 0 1 
+state.LED3 0 0 0 0 0 1 0 0 0 0 0 0 1 
+state.LED2 0 0 0 0 1 0 0 0 0 0 0 0 1 
+state.LED1 0 0 0 1 0 0 0 0 0 0 0 0 1 
+state.LED0 0 0 1 0 0 0 0 0 0 0 0 0 1 
+state.HOLD 0 1 0 0 0 0 0 0 0 0 0 0 1 
+state.SHUT 1 0 0 0 0 0 0 0 0 0 0 0 1 

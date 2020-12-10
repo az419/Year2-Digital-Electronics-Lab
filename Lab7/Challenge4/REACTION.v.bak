@@ -1,0 +1,24 @@
+module REACTION(clk,trigger,enable,display);
+
+	input		clk;
+	input		trigger,enable; // trigger: !KEY[0] enable: from FSM
+	output	display;
+	output reg [15:0] reaction_time;
+	
+	reg	[15:0]	count;
+	
+	initial	count = 16'b0;
+	
+	always @ (posedge clk)
+		begin
+			if(enable==1'b1)
+				count <= count + 1'b1;
+				if(trigger==1'b1)
+					reaction_time <= count;
+		end
+		
+endmodule
+	
+	
+	
+	

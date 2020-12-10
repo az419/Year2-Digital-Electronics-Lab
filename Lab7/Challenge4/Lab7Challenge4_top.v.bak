@@ -1,0 +1,13 @@
+module Lab7Challenge4_top(
+	input	 MAX10_CLK1_50,
+	input  [1:0] KEY,
+	output [9:0] LEDR
+		
+);	
+
+	wire	tick_ms, tick_halfs;
+		
+	clktick_1ms			msClk(MAX10_CLK1_50,1'b1,tick_ms);
+	clktick_halfsec	half_secClk(MAX10_CLK1_50,tick_ms,tick_halfs);
+	
+	FSM	fsm(tick_ms,tick_halfs,!KEY[1],1'b0,)

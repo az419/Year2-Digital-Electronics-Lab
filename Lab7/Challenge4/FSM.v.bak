@@ -1,0 +1,54 @@
+module FSM(
+	input		clk,
+	input		tick,
+	input		trigger,
+	input		time_out,
+	output	en_lfsr,
+	output	start_delay,
+	output	ledr
+);
+
+	parameter	IDLE = 4'b0000;
+	parameter	LEDR9= 4'b0001;
+	parameter	LEDR8= 4'b0010;
+	parameter	LEDR7= 4'b0011;
+	parameter	LEDR6= 4'b0100;
+	parameter	LEDR5= 4'b0101;
+	parameter	LEDR4= 4'b0110;
+	parameter	LEDR3= 4'b0111;
+	parameter	LEDR2= 4'b1000;
+	parameter	LEDR1= 4'b1001;	
+	
+	initial	state = IDLE;
+	
+	always @(posedge clk)
+		case(state)
+			IDLE:		if(trigger==1'b1)		state <= LEDR9;
+			LEDR9:	if(tick==1'b1)		state <= LEDR8;
+			LEDR8:	if(tick==1'b1)		state <= LEDR7;
+			LEDR7:	if(tick==1'b1)		state <= LEDR6;
+			LEDR6:	if(tick==1'b1)		state <= LEDR5;
+			LEDR5:	if(tick==1'b1)		state <= LEDR4;
+			LEDR4:	if(tick==1'b1)		state <= LEDR3;
+			LEDR3:	if(tick==1'b1)		state <= LEDR2;
+			LEDR2:	if(tick==1'b1)		state <= LEDR1;
+			LEDR1:	if(time_out==1'b1)	state <= IDLE;
+			defaule: state<= IDLE;
+		endcase
+		
+	always @(*)
+		case(state)
+			IDLE:			en_lfsr = 1;	ledr = 1;
+			LEDR9:		en_lfsr = 1;	ledr = 1;
+			LEDR8:		en_lfsr = 1;	ledr = 1;
+			LEDR7:		en_lfsr = 1;	ledr = 1;
+			LEDR6:		en_lfsr = 1;	ledr = 1;
+			LEDR5:		en_lfsr = 1;	ledr = 1;
+			LEDR4:		en_lfsr = 1;	ledr = 1;
+			LEDR3:		en_lfsr = 1;	ledr = 1;
+			LEDR2:		en_lfsr = 1;	ledr = 1;
+			LEDR1:		start_delay = 1;	ledr = 1;
+			
+		endcase
+
+endmodule
